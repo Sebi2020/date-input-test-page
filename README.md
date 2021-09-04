@@ -12,3 +12,7 @@ The Page contains the following input types:
 * Time
 
 Check your browser here: [https://sebi2020.github.io/date-input-test-page/](https://sebi2020.github.io/date-input-test-page/)
+
+TODO:
+* More optimizations for the repsonsive page design (mobile devices)
+* Add known compatibility tables / issues
