@@ -1,0 +1,162 @@
+<html>
+<head>
+	<title>DateTime Field compatibility test page</title>
+	<meta name="author" content="Sebastian Tilders" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<style>
+	* {
+		font-family: "Tahoma", sans-serif;
+		box-sizing: content-box;
+		font-size:  1em;
+	}
+	div.container {
+		font-size: 8pt;
+	}
+	h1 {
+		font-size: 1.5em;
+		font-family: "Arial", sans-serif;
+	}
+	th {
+		font-weight: bold;
+	}
+	tr:nth-child(even) {
+		background-color:  #efefef;
+	}
+	td,th {
+		border:  none;
+		padding: 0.25em;
+	}
+	td:first-child {
+		border-right: 1px solid;
+		font-weight: bold;
+	}
+	td label {
+		display: inline-block;
+		width: 100%;
+	}
+	table {
+		border-collapse: collapse;
+		border:  1px solid;
+	}
+	thead {
+		border-bottom:  1px solid;
+	}
+	code {
+		font-family: monospace;
+		background-color: #f2f2f2;
+		border: 1px solid #aaa;
+	}
+	code i {
+		font-family: monospace;
+		color:  #888;
+	}
+	@media screen and (min-width: 720px) {
+		div.container {
+			display: block;
+			margin: auto;
+			margin-top: 0px;
+			width: 80%;
+			min-width: 80%;
+			box-shadow: 0px 0px 10px #333;
+			min-height: 100vh;
+			padding: 0.5em;	
+			overflow: hidden;
+		}
+		body {
+			margin: 0px;
+			padding: 0px;
+		}
+	}
+	@media screen and (min-width: 720px) {
+		div.container {
+			font-size:102% !important;	
+		}
+	}
+	@media screen and (min-width: 960px) {
+		div.container {
+			font-size: 110% !important;
+		}
+	}
+	@media screen and (min-width:  1080px) {
+		div.container {
+			font-size: 115% !important;	
+		}
+	}
+	@media screen and (min-width:  2048px) {
+		div.container {
+			font-size: 120% !important;	
+		}
+	}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded', function(ev) {
+			let testDate = document.getElementById("test-date");
+			let testMonth = document.getElementById("test-month");
+			let testWeek = document.getElementById("test-week");
+			let testDateTimeLocal = document.getElementById("test-datetime-local");
+			let testTime = document.getElementById("test-time");
+
+			let testDate_value = document.getElementById("test-date-value");
+			let testMonth_value = document.getElementById("test-month-value");
+			let testWeek_value = document.getElementById("test-week-value");
+			let testDateTimeLocal_value = document.getElementById("test-datetime-local-value");
+			let testTime_value = document.getElementById("test-time-value");
+			let updateValueCbBuilder = function(target) {
+				return function(ev) {
+					if(ev.target.value == '') {
+						target.innerHTML = "<code><i>Empty string</i></code>";
+					} else {
+						target.innerHTML = '<code>' + ev.target.value  + '</code>';
+					}
+				}
+			}
+			testDate.addEventListener("change", updateValueCbBuilder(testDate_value));
+			testMonth.addEventListener("change", updateValueCbBuilder(testMonth_value));
+			testWeek.addEventListener("change", updateValueCbBuilder(testWeek_value));
+			testDateTimeLocal.addEventListener("change", updateValueCbBuilder(testDateTimeLocal_value));
+			testTime.addEventListener("change", updateValueCbBuilder(testTime_value));
+		});
+	</script>
+</head>
+<body>
+<div class="container">
+<h1>DateTime Field compatibility test page</h1>
+<table>
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Field</th>
+			<th>Resulting raw field value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><label for="test-date">Date</label></td>
+			<td><input type="date" id="test-date" name="test-date" /></td>
+			<td id="test-date-value"><code><i>Empty string</i></code></td>
+		</tr>
+		<tr>
+			<td><label for="test-month">Month</label></td>
+			<td><input type="month" id="test-month" name="test-month" /></td>
+			<td id="test-month-value"><code><i>Empty string</i></code></td>
+		</tr>
+		<tr>
+			<td><label for="test-week">Week</label></td>
+			<td><input type="test-week" id="test-week" name="test-week" /></td>
+			<td id="test-week-value"><code><i>Empty string</i></code></td>
+		</tr>
+		<tr>
+			<td><label for="test-datetime-local">DateTime-Local</label></td>
+			<td><input type="datetime-local" id="test-datetime-local" name="test-datetime-local"></td>
+			<td id="test-datetime-local-value"><code><i>Empty string</i></code></td>
+		</tr>
+		<tr>
+			<td><label for="test-time">Time</label></td>
+			<td><input type="time" id="test-time" name="test-time" /></td>
+			<td id="test-time-value"><code><i>Empty string</i></code></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</body>
+</html>
